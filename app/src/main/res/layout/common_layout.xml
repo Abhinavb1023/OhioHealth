@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.ohiohealth.kata.data.User" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ilFirstName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/first_name"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
+                android:text="@{user.firstName}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ilCityName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/btnTranslate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ilFirstName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCityName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/city_name"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
+                android:text="@{user.cityName}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnTranslate"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/btn_translate"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/ilCityName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ilCityName" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ilYearOfJoining"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/ilCityName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etYearOfJoining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/year_of_joining"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="4"
+                android:text="@{user.yearOfJoining}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:paddingHorizontal="50dp"
+            android:paddingVertical="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ilYearOfJoining" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">OhioHealthKata</string>
+
+    <string name="first_name">First Name</string>
+    <string name="city_name">City Name</string>
+    <string name="year_of_joining">Year of Joining</string>
+
+    <string name="FIRST_PAGE">First Page</string>
+
+    <string name="btn_next">Next</string>
+
+</resources>
