@@ -6,7 +6,10 @@
     <string name="year_of_joining">Year of Joining</string>
 
     <string name="FIRST_PAGE">First Page</string>
+    <string name="SECOND_PAGE">Second Page</string>
 
     <string name="btn_next">Next</string>
+    <string name="btn_retrieve">Retrieve</string>
+    <string name="btn_translate">Translate</string>
 
 </resources>

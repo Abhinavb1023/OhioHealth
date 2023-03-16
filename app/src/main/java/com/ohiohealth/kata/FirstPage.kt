@@ -1,8 +1,12 @@
 package com.ohiohealth.kata
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
+import com.ohiohealth.kata.data.User
 import com.ohiohealth.kata.databinding.CommonLayoutBinding
+import com.ohiohealth.kata.util.SharedPreferenceManager
 import java.util.*
 
 class FirstPage : AppCompatActivity() {
@@ -20,11 +24,11 @@ class FirstPage : AppCompatActivity() {
         mBinding.etFirstName.requestFocus()
 
         mBinding.btnAction.setOnClickListener {
-            validate()
+            validateAndNavigate()
         }
     }
 
-    private fun validate(): Boolean {
+    private fun validateAndNavigate(): Boolean {
         var isValid = true
 
         if (mBinding.etYearOfJoining.length() < 4 ||
@@ -46,6 +50,22 @@ class FirstPage : AppCompatActivity() {
             mBinding.etFirstName.error = "Enter first name"
             mBinding.etFirstName.requestFocus()
             isValid = false
+        }
+
+        if (isValid) {
+            val intent = Intent(this@FirstPage, SecondPage::class.java)
+            startActivity(intent)
+
+            val userData = User(
+                firstName = mBinding.etFirstName.text.toString(),
+                cityName = mBinding.etCityName.text.toString(),
+                yearOfJoining = mBinding.etYearOfJoining.text.toString()
+            )
+
+            val sharedPreferenceManager = SharedPreferenceManager(this)
+            sharedPreferenceManager.putString(
+                SharedPreferenceManager.USER_DATA, Gson().toJson(userData)
+            )
         }
 
         return isValid
